@@ -36,7 +36,7 @@ export default function WeddingSite() {
       <main className="mx-auto max-w-5xl px-4">
         <Hero prefix={prefix} />
         <FloralDivider />
-        <SectionHeading>You're invited to our wedding!</SectionHeading>
+        <SectionHeading>You&apos;re invited to our wedding!</SectionHeading>
         <RSVP />
         <FloralDivider />
         <SectionHeading>Here's what we have in store</SectionHeading>
@@ -341,12 +341,15 @@ function RSVP() {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
+    // const formData = new FormData(e.currentTarget);
+    // const payload = Object.fromEntries(formData.entries());
     const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const guestName = (formData.get("name") as string) || "Friend";
 
     // TEMP: no backend yet (Pages is static). Swap to webhook later.
     await new Promise((r) => setTimeout(r, 400));
-    setStatus({ ok: true, msg: "Thanks! We’ll see you soon." });
+    // setStatus({ ok: true, msg: "Thanks! We’ll see you soon." });
+    setStatus({ ok: true, msg: `Thanks, ${guestName}! We\u2019ll see you soon.` });
     setLoading(false);
 
     // Example for later:
@@ -372,10 +375,10 @@ function RSVP() {
               <label className="mb-1 block text-sm font-medium">Will you attend?</label>
               <div className="flex flex-wrap gap-3">
                 <label className="inline-flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2">
-                  <input type="radio" name="attending" value="yes" required /> We'll be there!
+                  <input type="radio" name="attending" value="yes" required /> We&apos;ll be there!
                 </label>
                 <label className="inline-flex items-center gap-2 rounded-xl border border-stone-200 px-3 py-2">
-                  <input type="radio" name="attending" value="no" required /> Can't make it
+                  <input type="radio" name="attending" value="no" required /> Can&apos;t make it
                 </label>
               </div>
             </div>
