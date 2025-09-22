@@ -39,7 +39,7 @@ export default function WeddingSite() {
         <SectionHeading>You&apos;re invited to our wedding!</SectionHeading>
         <RSVP />
         <FloralDivider />
-        <SectionHeading>Here's what we have in store</SectionHeading>
+        <SectionHeading>Here&apos;s what we have in store</SectionHeading>
         <Schedule />
         <FloralDivider />
         <SectionHeading>Travel &amp; Stay</SectionHeading>
